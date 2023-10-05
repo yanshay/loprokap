@@ -1,6 +1,7 @@
 # LoProKap
 
 A wireless split keyboard with keys layout somewhat compatible with Kinesis Advantage Pro 360<sup>TM</sup>.
+Designed using [Ergogen](https://ergogen.xyz/) and my [Ergogen Routing System](https://github.com/yanshay/ergogen-stuff)
 
 ## Background
 
@@ -28,12 +29,14 @@ Both the KiCad Plugin and the Ergogen Footprint are available at https://github.
 There are several scripts at the repo root that are specific to my systm folder structure that include some helpful functionality for easier workflow with Ergogen.
 
 ## Credits and Acknowledgements
-[@infused-kim](https://github.com/infused-kim)
-- https://github.com/infused-kim/kb_ergogen_fp - basis for the footprints used, some of them were improved for this keyboard and therefore are in this repo
-- https://github.com/infused-kim/kb_think_corney - referenced used for learning
-- Lots of assistance over the Ergogen discord
+- [Ergogen](https://ergogen.xyz/)
 
-Everyone else who contributed to @infused-kim work and are mentioned in his repos, so indirectly contributed to this as well.
+- [@infused-kim](https://github.com/infused-kim)
+  - https://github.com/infused-kim/kb_ergogen_fp - basis for the footprints used, some of them were improved for this keyboard and therefore are in this repo
+  - https://github.com/infused-kim/kb_think_corney - referenced used for learning
+  - Thanks for the assistance over Ergogen Discord
+
+- Everyone else who contributed to @infused-kim work and are mentioned in his repos, so indirectly contributed to this as well.
 
 ## License
 
@@ -45,4 +48,11 @@ Everyone else who contributed to @infused-kim work and are mentioned in his repo
 
 This work is licensed under a
 [Creative Commons Attribution-ShareAlike 4.0 International License][cc-by-sa].
+
+[![CC BY-SA 4.0][cc-by-sa-image]][cc-by-sa]
+
+[cc-by-sa]: http://creativecommons.org/licenses/by-sa/4.0/
+[cc-by-sa-image]: https://licensebuttons.net/l/by-sa/4.0/88x31.png
+[cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg
+
 
