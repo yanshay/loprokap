@@ -13,7 +13,7 @@ I own a [Kinesis Advantage Pro 360 keyboard](https://kinesis-ergo.com/shop/adv36
 
 With its concave structure, ergonomically it's a **great** keyboard but that costs in it not being very mobile.
 
-Since I started using it I find it uncomfortable/confusing to use a standard keyboard so wanted to build a more mobile low profile keyboard that shares the same zmk configuration, and for that needed a compatible key layout. I also wanted keys to be layed out in a way that works on a non concave keyboard. This keyboard is the result.
+Since I started using it I find it uncomfortable/confusing to use a standard keyboard when the Kinesis is not with me, so wanted to build a more mobile low profile keyboard that shares the same zmk configuration, and for that needed a compatible key layout. I also wanted keys to be layed out in a way that works on a non concave keyboard. This keyboard is the result.
 
 The keyboard is developed using Ergogen and KiCad.
 
