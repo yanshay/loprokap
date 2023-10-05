@@ -3,6 +3,10 @@
 A wireless split keyboard with keys layout somewhat compatible with Kinesis Advantage Pro 360<sup>TM</sup>.
 Designed using [Ergogen](https://ergogen.xyz/) and my [Ergogen Routing System](https://github.com/yanshay/ergogen-stuff)
 
+> **Warning**
+>
+> This keyboard is still under development and not ready for manufacturing.
+
 ## Background
 
 I own a [Kinesis Advantage Pro 360 keyboard](https://kinesis-ergo.com/shop/adv360pro/). 
