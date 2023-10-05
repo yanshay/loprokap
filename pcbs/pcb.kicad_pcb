@@ -8663,16 +8663,18 @@
 (segment locked (start 217.15999 149.065) (end 222.40999 149.065) (width 0.25) (layer B.Cu) (net 0))
 (segment locked (start 222.40999 149.065) (end 223.50065 147.97434) (width 0.25) (layer B.Cu) (net 0))
 (segment locked (start 223.50065 147.97434) (end 223.50065 147.7) (width 0.25) (layer B.Cu) (net 0))
-(segment locked (start 233.05065 150.24) (end 233.05065 150.13038) (width 0.25) (layer F.Cu) (net 0))
-(segment locked (start 233.05065 150.13038) (end 234.30603 148.875) (width 0.25) (layer F.Cu) (net 0))
-(segment locked (start 234.30603 148.875) (end 236.80065 148.875) (width 0.25) (layer F.Cu) (net 0))
-(segment locked (start 236.80065 148.875) (end 238.87565 150.95) (width 0.25) (layer F.Cu) (net 0))
-(segment locked (start 238.87565 150.95) (end 238.87565 157.59934) (width 0.25) (layer F.Cu) (net 0))
-(segment locked (start 238.87565 157.59934) (end 235.94999 160.52499) (width 0.25) (layer F.Cu) (net 0))
-(segment locked (start 235.94999 160.52499) (end 235.94999 172.7) (width 0.25) (layer F.Cu) (net 0))
-(via locked (at 235.94999 172.7) (size 0.8) (drill 0.4) (layers "F.Cu" "B.Cu") (net 0))
-(segment locked (start 235.94999 172.7) (end 235.94999 175.15321) (width 0.25) (layer B.Cu) (net 0))
-(segment locked (start 235.94999 175.15321) (end 235.16743 175.93577) (width 0.25) (layer B.Cu) (net 0))
+(segment locked (start 235.16743 175.93577) (end 235.16743 175.93256) (width 0.25) (layer B.Cu) (net 0))
+(segment locked (start 235.16743 175.93256) (end 238.34999 172.75) (width 0.25) (layer B.Cu) (net 0))
+(via locked (at 238.34999 172.75) (size 0.8) (drill 0.4) (layers "F.Cu" "B.Cu") (net 0))
+(segment locked (start 238.34999 172.75) (end 238.34999 169.90001) (width 0.25) (layer F.Cu) (net 0))
+(segment locked (start 238.34999 169.90001) (end 235.94999 167.5) (width 0.25) (layer F.Cu) (net 0))
+(segment locked (start 235.94999 167.5) (end 235.94999 160.52499) (width 0.25) (layer F.Cu) (net 0))
+(segment locked (start 235.94999 160.52499) (end 238.87565 157.59934) (width 0.25) (layer F.Cu) (net 0))
+(segment locked (start 238.87565 157.59934) (end 238.87565 150.95) (width 0.25) (layer F.Cu) (net 0))
+(segment locked (start 238.87565 150.95) (end 236.80065 148.875) (width 0.25) (layer F.Cu) (net 0))
+(segment locked (start 236.80065 148.875) (end 234.30603 148.875) (width 0.25) (layer F.Cu) (net 0))
+(segment locked (start 234.30603 148.875) (end 233.05065 150.13038) (width 0.25) (layer F.Cu) (net 0))
+(segment locked (start 233.05065 150.13038) (end 233.05065 150.24) (width 0.25) (layer F.Cu) (net 0))
 
 
             (module mounting_hole (layer F.Cu) (tedit 64B5A986)
@@ -8788,22 +8790,8 @@
         
 
             (module mounting_hole (layer F.Cu) (tedit 64B5A986)
-                (at 239.47565459999998 171.639698 0)
-                (fp_text reference "H9" (at 0 3) (layer F.SilkS) hide
-                    (effects (font (size 1 1) (thickness 0.15)))
-                )
-        
-                (pad "" thru_hole circle (at 0 0 180) (size 4 4) (drill 2.2) (layers *.Cu *.Mask))
-        
-                (fp_circle (center 0 0) (end -2.25 0) (layer F.CrtYd) (width 0.05))
-                (fp_circle (center 0 0) (end -2.25 0) (layer B.CrtYd) (width 0.05))
-        
-            )
-        
-
-            (module mounting_hole (layer F.Cu) (tedit 64B5A986)
                 (at 217.4534994 200.2338038 -12)
-                (fp_text reference "H10" (at 0 3) (layer F.SilkS) hide
+                (fp_text reference "H9" (at 0 3) (layer F.SilkS) hide
                     (effects (font (size 1 1) (thickness 0.15)))
                 )
         
@@ -10868,35 +10856,35 @@
           (pad "" np_thru_hole circle (at 0.025 1.5 90) (size 0.9 0.9) (drill 0.9) (layers *.Cu *.Mask))
         )
         
-(segment locked (start 225.01365 129.92) (end 226.20865 128.725) (width 0.25) (layer F.Cu) (net 0))
-(segment locked (start 226.20865 128.725) (end 239.77499 128.725) (width 0.25) (layer F.Cu) (net 0))
-(segment locked (start 239.77499 128.725) (end 241.40065 130.35066) (width 0.25) (layer F.Cu) (net 0))
-(segment locked (start 241.40065 130.35066) (end 241.40065 149.24935) (width 0.25) (layer F.Cu) (net 0))
-(segment locked (start 241.40065 149.24935) (end 240.44999 150.2) (width 0.25) (layer F.Cu) (net 0))
-(segment locked (start 240.44999 150.2) (end 239.70065 150.2) (width 0.25) (layer F.Cu) (net 0))
-(segment locked (start 239.70065 150.2) (end 239.70065 158.34935) (width 0.25) (layer F.Cu) (net 0))
-(segment locked (start 239.70065 158.34935) (end 240.32499 158.97369) (width 0.25) (layer F.Cu) (net 0))
-(segment locked (start 240.32499 158.97369) (end 240.32499 160.7) (width 0.25) (layer F.Cu) (net 0))
-(segment locked (start 240.32499 160.7) (end 241.39999 161.775) (width 0.25) (layer F.Cu) (net 0))
-(segment locked (start 241.39999 161.775) (end 241.39999 166.1) (width 0.25) (layer F.Cu) (net 0))
-(segment locked (start 241.39999 166.1) (end 240.39999 167.1) (width 0.25) (layer F.Cu) (net 0))
-(segment locked (start 240.39999 167.1) (end 240.39999 168.375) (width 0.25) (layer F.Cu) (net 0))
-(segment locked (start 240.39999 168.375) (end 241.85065 169.82567) (width 0.25) (layer F.Cu) (net 0))
-(segment locked (start 241.85065 169.82567) (end 241.85065 174.07434) (width 0.25) (layer F.Cu) (net 0))
-(segment locked (start 241.85065 174.07434) (end 240.74999 175.175) (width 0.25) (layer F.Cu) (net 0))
-(segment locked (start 240.74999 175.175) (end 223.99999 171.625) (width 0.25) (layer F.Cu) (net 0))
-(segment locked (start 223.99999 171.625) (end 222.05565 169.68067) (width 0.25) (layer F.Cu) (net 0))
-(segment locked (start 222.05565 169.68067) (end 222.05565 169) (width 0.25) (layer F.Cu) (net 0))
-(segment locked (start 224.29565 169) (end 224.29565 169.68317) (width 0.25) (layer F.Cu) (net 0))
-(segment locked (start 224.29565 169.68317) (end 226.24975 171.63726) (width 0.25) (layer F.Cu) (net 0))
-(segment locked (start 226.24975 171.63726) (end 236.77549 173.86274) (width 0.25) (layer F.Cu) (net 0))
-(segment locked (start 236.77549 173.86274) (end 236.77549 164.07449) (width 0.25) (layer F.Cu) (net 0))
-(segment locked (start 236.77549 164.07449) (end 236.98999 163.86) (width 0.25) (layer F.Cu) (net 0))
+(segment locked (start 227.62065 169.2) (end 227.62065 171.52293) (width 0.25) (layer F.Cu) (net 0))
+(segment locked (start 227.62065 171.52293) (end 227.99999 171.90227) (width 0.25) (layer F.Cu) (net 0))
+(segment locked (start 227.99999 171.90227) (end 238.82499 174.22077) (width 0.25) (layer F.Cu) (net 0))
+(segment locked (start 238.82499 174.22077) (end 239.31999 173.72577) (width 0.25) (layer F.Cu) (net 0))
+(segment locked (start 239.31999 173.72577) (end 239.31999 169.67) (width 0.25) (layer F.Cu) (net 0))
+(segment locked (start 239.31999 169.67) (end 236.98999 167.33999) (width 0.25) (layer F.Cu) (net 0))
+(segment locked (start 236.98999 167.33999) (end 236.98999 163.86) (width 0.25) (layer F.Cu) (net 0))
 (via locked (at 236.98999 163.86) (size 0.8) (drill 0.4) (layers "F.Cu" "B.Cu") (net 0))
 (segment locked (start 236.98999 163.86) (end 237.71969 164.5897) (width 0.25) (layer B.Cu) (net 0))
 (segment locked (start 237.71969 164.5897) (end 238.64065 164.5897) (width 0.25) (layer B.Cu) (net 0))
 (segment locked (start 236.98999 163.86) (end 237.76029 163.0897) (width 0.25) (layer F.Cu) (net 0))
 (segment locked (start 237.76029 163.0897) (end 238.64065 163.0897) (width 0.25) (layer F.Cu) (net 0))
+(segment locked (start 225.38065 169.2) (end 225.38065 171.48313) (width 0.25) (layer F.Cu) (net 0))
+(segment locked (start 225.38065 171.48313) (end 225.84999 171.95248) (width 0.25) (layer F.Cu) (net 0))
+(segment locked (start 225.84999 171.95248) (end 239.42499 174.85997) (width 0.25) (layer F.Cu) (net 0))
+(segment locked (start 239.42499 174.85997) (end 240.37499 173.90997) (width 0.25) (layer F.Cu) (net 0))
+(segment locked (start 240.37499 173.90997) (end 240.37499 167.125) (width 0.25) (layer F.Cu) (net 0))
+(segment locked (start 240.37499 167.125) (end 241.39999 166.10001) (width 0.25) (layer F.Cu) (net 0))
+(segment locked (start 241.39999 166.10001) (end 241.39999 161.775) (width 0.25) (layer F.Cu) (net 0))
+(segment locked (start 241.39999 161.775) (end 240.32499 160.7) (width 0.25) (layer F.Cu) (net 0))
+(segment locked (start 240.32499 160.7) (end 240.32499 158.97369) (width 0.25) (layer F.Cu) (net 0))
+(segment locked (start 240.32499 158.97369) (end 239.70065 158.34935) (width 0.25) (layer F.Cu) (net 0))
+(segment locked (start 239.70065 158.34935) (end 239.70065 150.2) (width 0.25) (layer F.Cu) (net 0))
+(segment locked (start 239.70065 150.2) (end 240.44999 150.2) (width 0.25) (layer F.Cu) (net 0))
+(segment locked (start 240.44999 150.2) (end 241.40065 149.24935) (width 0.25) (layer F.Cu) (net 0))
+(segment locked (start 241.40065 149.24935) (end 241.40065 130.35066) (width 0.25) (layer F.Cu) (net 0))
+(segment locked (start 241.40065 130.35066) (end 239.77499 128.725) (width 0.25) (layer F.Cu) (net 0))
+(segment locked (start 239.77499 128.725) (end 226.20865 128.725) (width 0.25) (layer F.Cu) (net 0))
+(segment locked (start 226.20865 128.725) (end 225.01365 129.92) (width 0.25) (layer F.Cu) (net 0))
 (segment locked (start 241.40065 156.4647) (end 241.40065 151.2147) (width 0.25) (layer F.Cu) (net 0))
 (segment locked (start 241.40065 151.2147) (end 241.40065 150.02435) (width 0.25) (layer F.Cu) (net 0))
 (segment locked (start 241.40065 150.02435) (end 241.85065 149.57435) (width 0.25) (layer F.Cu) (net 0))
@@ -10923,7 +10911,7 @@
 
             (module mounting_hole (layer F.Cu) (tedit 64B5A986)
                 (at 224.1756546 152.7 0)
-                (fp_text reference "H11" (at 0 3) (layer F.SilkS) hide
+                (fp_text reference "H10" (at 0 3) (layer F.SilkS) hide
                     (effects (font (size 1 1) (thickness 0.15)))
                 )
         
@@ -10933,7 +10921,7 @@
         
 
         (module conn_molex_pico_ezmate_1x02 (layer F.Cu) (tedit 6445F610)
-          (at 223.1756546 164 180)
+          (at 226.5006546 164.2 180)
           (attr smd)
 
       
@@ -11002,7 +10990,7 @@
       
 
           (module pads (layer F.Cu) (tedit 6446BF3D)
-            (at 223.1756546 164 180)
+            (at 226.5006546 164.2 180)
             (attr smd)
 
             (fp_text reference "PAD1" (at 0 2.2) (layer F.SilkS) hide
@@ -11022,32 +11010,32 @@
         
 
         (module icon_bat (layer F.Cu) (tedit 64461058)
-          (at 223.1756546 162.2 180)
+          (at 226.5006546 164.39999999999998 180)
           (attr virtual)
 
       
           (fp_text reference "ICON1" (at 0 3 180) (layer F.SilkS) hide
             (effects (font (size 1 1) (thickness 0.15)))
           )
-          (fp_circle (center -3.55 0) (end -3.05 0) (layer F.SilkS) (width 0.1))
-          (fp_line (start -3.55 -0.3) (end -3.55 0.3) (layer F.SilkS) (width 0.1))
-          (fp_line (start -3.85 0) (end -3.25 0) (layer F.SilkS) (width 0.1))
+          (fp_circle (center -3.05 0) (end -2.55 0) (layer F.SilkS) (width 0.1))
+          (fp_line (start -3.05 -0.3) (end -3.05 0.3) (layer F.SilkS) (width 0.1))
+          (fp_line (start -3.35 0) (end -2.75 0) (layer F.SilkS) (width 0.1))
 
-          (fp_circle (center 3.55 0) (end 4.05  0) (layer F.SilkS) (width 0.1))
-          (fp_line (start 3.25 0) (end 3.85 0) (layer F.SilkS) (width 0.1))
+          (fp_circle (center 3.05 0) (end 3.55  0) (layer F.SilkS) (width 0.1))
+          (fp_line (start 2.75 0) (end 3.35 0) (layer F.SilkS) (width 0.1))
       
-          (fp_circle (center -3.55 0) (end -4.05  0) (layer B.SilkS) (width 0.1))
-          (fp_line (start -3.25 0) (end -3.85 0) (layer B.SilkS) (width 0.1))
+          (fp_circle (center -3.05 0) (end -3.55  0) (layer B.SilkS) (width 0.1))
+          (fp_line (start -2.75 0) (end -3.35 0) (layer B.SilkS) (width 0.1))
 
-          (fp_circle (center 3.55 0) (end 3.05 0) (layer B.SilkS) (width 0.1))
-          (fp_line (start 3.55 -0.3) (end 3.55 0.3) (layer B.SilkS) (width 0.1))
-          (fp_line (start 3.85 0) (end 3.25 0) (layer B.SilkS) (width 0.1))
+          (fp_circle (center 3.05 0) (end 2.55 0) (layer B.SilkS) (width 0.1))
+          (fp_line (start 3.05 -0.3) (end 3.05 0.3) (layer B.SilkS) (width 0.1))
+          (fp_line (start 3.35 0) (end 2.75 0) (layer B.SilkS) (width 0.1))
       
       )
       
 
           (module pads (layer F.Cu) (tedit 6446BF3D)
-            (at 223.1756546 169 180)
+            (at 226.5006546 169.2 180)
             (attr smd)
 
             (fp_text reference "PAD2" (at 0 2.2) (layer F.SilkS) hide
@@ -11063,65 +11051,93 @@
         
 
         (module icon_bat (layer F.Cu) (tedit 64461058)
-          (at 223.1756546 169 180)
+          (at 226.5006546 169.2 180)
           (attr virtual)
 
       
           (fp_text reference "ICON2" (at 0 3 180) (layer F.SilkS) hide
             (effects (font (size 1 1) (thickness 0.15)))
           )
-          (fp_circle (center -3.55 0) (end -3.05 0) (layer F.SilkS) (width 0.1))
-          (fp_line (start -3.55 -0.3) (end -3.55 0.3) (layer F.SilkS) (width 0.1))
-          (fp_line (start -3.85 0) (end -3.25 0) (layer F.SilkS) (width 0.1))
+          (fp_circle (center -3.05 0) (end -2.55 0) (layer F.SilkS) (width 0.1))
+          (fp_line (start -3.05 -0.3) (end -3.05 0.3) (layer F.SilkS) (width 0.1))
+          (fp_line (start -3.35 0) (end -2.75 0) (layer F.SilkS) (width 0.1))
 
-          (fp_circle (center 3.55 0) (end 4.05  0) (layer F.SilkS) (width 0.1))
-          (fp_line (start 3.25 0) (end 3.85 0) (layer F.SilkS) (width 0.1))
+          (fp_circle (center 3.05 0) (end 3.55  0) (layer F.SilkS) (width 0.1))
+          (fp_line (start 2.75 0) (end 3.35 0) (layer F.SilkS) (width 0.1))
       
       )
       
 
         (module icon_bat (layer F.Cu) (tedit 64461058)
-          (at 223.1756546 169 360)
+          (at 226.5006546 169.2 360)
           (attr virtual)
 
       
-          (fp_circle (center -3.55 0) (end -4.05  0) (layer B.SilkS) (width 0.1))
-          (fp_line (start -3.25 0) (end -3.85 0) (layer B.SilkS) (width 0.1))
+          (fp_circle (center -3.05 0) (end -3.55  0) (layer B.SilkS) (width 0.1))
+          (fp_line (start -2.75 0) (end -3.35 0) (layer B.SilkS) (width 0.1))
 
-          (fp_circle (center 3.55 0) (end 3.05 0) (layer B.SilkS) (width 0.1))
-          (fp_line (start 3.55 -0.3) (end 3.55 0.3) (layer B.SilkS) (width 0.1))
-          (fp_line (start 3.85 0) (end 3.25 0) (layer B.SilkS) (width 0.1))
+          (fp_circle (center 3.05 0) (end 2.55 0) (layer B.SilkS) (width 0.1))
+          (fp_line (start 3.05 -0.3) (end 3.05 0.3) (layer B.SilkS) (width 0.1))
+          (fp_line (start 3.35 0) (end 2.75 0) (layer B.SilkS) (width 0.1))
       
       )
       
-(segment locked (start 222.82565 163.1) (end 221.92565 164) (width 0.25) (layer B.Cu) (net 0))
-(segment locked (start 221.92565 164) (end 221.92565 165.225) (width 0.25) (layer B.Cu) (net 0))
-(segment locked (start 221.92565 165.225) (end 222.57565 165.875) (width 0.25) (layer B.Cu) (net 0))
-(segment locked (start 222.57565 165.875) (end 221.9 165.875) (width 0.25) (layer B.Cu) (net 0))
-(segment locked (start 221.9 165.875) (end 220.4 167.375) (width 0.25) (layer B.Cu) (net 0))
-(segment locked (start 220.4 167.375) (end 220.4 170.45) (width 0.25) (layer B.Cu) (net 0))
-(segment locked (start 220.4 170.45) (end 220.875 170.925) (width 0.25) (layer B.Cu) (net 0))
-(segment locked (start 220.875 170.925) (end 223.375 170.925) (width 0.25) (layer B.Cu) (net 0))
-(segment locked (start 223.375 170.925) (end 224.29565 170.00434) (width 0.25) (layer B.Cu) (net 0))
-(segment locked (start 224.29565 170.00434) (end 224.29565 169) (width 0.25) (layer B.Cu) (net 0))
-(segment locked (start 224.29565 169) (end 224.29565 166.395) (width 0.25) (layer F.Cu) (net 0))
-(segment locked (start 224.29565 166.395) (end 223.77565 165.875) (width 0.25) (layer F.Cu) (net 0))
-(via locked (at 223.17565 163.1) (size 0.8) (drill 0.4) (layers "F.Cu" "B.Cu") (net 0))
-(segment locked (start 223.17565 163.1) (end 222.82565 163.1) (width 0.25) (layer B.Cu) (net 0))
-(segment locked (start 224.42565 164) (end 224.05015 164) (width 0.25) (layer F.Cu) (net 0))
-(segment locked (start 224.05015 164) (end 223.17565 163.1) (width 0.25) (layer F.Cu) (net 0))
-(segment locked (start 222.05565 166.395) (end 222.05565 169) (width 0.25) (layer F.Cu) (net 0))
-(segment locked (start 222.05565 169) (end 222.05565 167.595) (width 0.25) (layer B.Cu) (net 0))
-(segment locked (start 222.05565 167.595) (end 223.77565 165.875) (width 0.25) (layer B.Cu) (net 0))
-(segment locked (start 223.77565 165.875) (end 224.42565 165.225) (width 0.25) (layer B.Cu) (net 0))
-(segment locked (start 224.42565 165.225) (end 224.42565 164) (width 0.25) (layer B.Cu) (net 0))
-(segment locked (start 224.42565 164) (end 223.80065 164.625) (width 0.25) (layer B.Cu) (net 0))
-(segment locked (start 223.80065 164.625) (end 223.17565 164.625) (width 0.25) (layer B.Cu) (net 0))
-(via locked (at 223.17565 164.625) (size 0.8) (drill 0.4) (layers "F.Cu" "B.Cu") (net 0))
-(segment locked (start 223.17565 164.625) (end 222.52515 164) (width 0.25) (layer F.Cu) (net 0))
-(segment locked (start 222.52515 164) (end 221.92565 164) (width 0.25) (layer F.Cu) (net 0))
-(segment locked (start 222.57565 165.875) (end 222.05565 166.395) (width 0.25) (layer F.Cu) (net 0))
+(segment locked (start 226.15065 163.3) (end 225.25065 164.2) (width 0.25) (layer B.Cu) (net 0))
+(segment locked (start 225.25065 164.2) (end 225.25065 165.425) (width 0.25) (layer B.Cu) (net 0))
+(segment locked (start 225.25065 165.425) (end 225.90065 166.075) (width 0.25) (layer B.Cu) (net 0))
+(segment locked (start 225.90065 166.075) (end 225.225 166.075) (width 0.25) (layer B.Cu) (net 0))
+(segment locked (start 225.225 166.075) (end 223.725 167.575) (width 0.25) (layer B.Cu) (net 0))
+(segment locked (start 223.725 167.575) (end 223.725 170.65) (width 0.25) (layer B.Cu) (net 0))
+(segment locked (start 223.725 170.65) (end 224.2 171.125) (width 0.25) (layer B.Cu) (net 0))
+(segment locked (start 224.2 171.125) (end 226.7 171.125) (width 0.25) (layer B.Cu) (net 0))
+(segment locked (start 226.7 171.125) (end 227.62065 170.20434) (width 0.25) (layer B.Cu) (net 0))
+(segment locked (start 227.62065 170.20434) (end 227.62065 169.2) (width 0.25) (layer B.Cu) (net 0))
+(segment locked (start 227.62065 169.2) (end 227.62065 166.595) (width 0.25) (layer F.Cu) (net 0))
+(segment locked (start 227.62065 166.595) (end 227.10065 166.075) (width 0.25) (layer F.Cu) (net 0))
+(via locked (at 226.50065 163.3) (size 0.8) (drill 0.4) (layers "F.Cu" "B.Cu") (net 0))
+(segment locked (start 226.50065 163.3) (end 226.15065 163.3) (width 0.25) (layer B.Cu) (net 0))
+(segment locked (start 227.75065 164.2) (end 227.37515 164.2) (width 0.25) (layer F.Cu) (net 0))
+(segment locked (start 227.37515 164.2) (end 226.50065 163.3) (width 0.25) (layer F.Cu) (net 0))
+(segment locked (start 225.38065 166.595) (end 225.38065 169.2) (width 0.25) (layer F.Cu) (net 0))
+(segment locked (start 225.38065 169.2) (end 225.38065 167.795) (width 0.25) (layer B.Cu) (net 0))
+(segment locked (start 225.38065 167.795) (end 227.10065 166.075) (width 0.25) (layer B.Cu) (net 0))
+(segment locked (start 227.10065 166.075) (end 227.75065 165.425) (width 0.25) (layer B.Cu) (net 0))
+(segment locked (start 227.75065 165.425) (end 227.75065 164.2) (width 0.25) (layer B.Cu) (net 0))
+(segment locked (start 227.75065 164.2) (end 227.12565 164.825) (width 0.25) (layer B.Cu) (net 0))
+(segment locked (start 227.12565 164.825) (end 226.50065 164.825) (width 0.25) (layer B.Cu) (net 0))
+(via locked (at 226.50065 164.825) (size 0.8) (drill 0.4) (layers "F.Cu" "B.Cu") (net 0))
+(segment locked (start 226.50065 164.825) (end 225.85015 164.2) (width 0.25) (layer F.Cu) (net 0))
+(segment locked (start 225.85015 164.2) (end 225.25065 164.2) (width 0.25) (layer F.Cu) (net 0))
+(segment locked (start 225.90065 166.075) (end 225.38065 166.595) (width 0.25) (layer F.Cu) (net 0))
 
+
+            (module mounting_hole (layer F.Cu) (tedit 64B5A986)
+                (at 221.0256546 162.5 0)
+                (fp_text reference "H11" (at 0 3) (layer F.SilkS) hide
+                    (effects (font (size 1 1) (thickness 0.15)))
+                )
+        
+                (pad "" thru_hole circle (at 0 0 180) (size 4 4) (drill 2.2) (layers *.Cu *.Mask))
+        
+                (fp_circle (center 0 0) (end -2.25 0) (layer F.CrtYd) (width 0.05))
+                (fp_circle (center 0 0) (end -2.25 0) (layer B.CrtYd) (width 0.05))
+        
+            )
+        
+
+            (module mounting_hole (layer F.Cu) (tedit 64B5A986)
+                (at 235.5256546 171 0)
+                (fp_text reference "H12" (at 0 3) (layer F.SilkS) hide
+                    (effects (font (size 1 1) (thickness 0.15)))
+                )
+        
+                (pad "" thru_hole circle (at 0 0 180) (size 4 4) (drill 2.2) (layers *.Cu *.Mask))
+        
+                (fp_circle (center 0 0) (end -2.25 0) (layer F.CrtYd) (width 0.05))
+                (fp_circle (center 0 0) (end -2.25 0) (layer B.CrtYd) (width 0.05))
+        
+            )
+        
             (gr_line (start 90 208.51) (end 90 123.49) (angle 90) (layer Edge.Cuts) (width 0.15))
 (gr_line (start 90.99 122.5) (end 107.01 122.5) (angle 90) (layer Edge.Cuts) (width 0.15))
 (gr_line (start 108 121.51) (end 108 121.49) (angle 90) (layer Edge.Cuts) (width 0.15))
