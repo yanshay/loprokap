@@ -19,6 +19,8 @@ Faced with that challenge, I developed a system for easy routing that complement
 
 Both the KiCad Plugin and the Ergogen Footprint are available at https://github.com/yanshay/ergogen-stuff .
 
+![Keyboard PCB Image](pcb.png)
+
 ## Building the keyboard
 
 1. Clone this repo
