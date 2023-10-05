@@ -1,0 +1,787 @@
+units:
+  kx: cx
+  ky: cy
+  px: 0.0
+  py: 0.0
+  kpx: kx+px
+  kpy: ky+py
+  step: .5
+
+  pinky_stagger: 2
+  ring_stagger: 8
+  middle_stagger: 5
+  index_stagger: -5
+  inner_stagger: -3
+  superinner_stagger: -3
+
+  mounting_hole_outline: 0.9
+  mounting_hole_drill: 2.2
+
+points:
+  key:
+    padding: kpy
+    spread: kpx
+    height: 16.5
+    width: 17.5
+  zones:
+    matrix:
+      key:
+        tags: key
+      anchor:
+        shift: [100, -200]
+      columns:
+        outer:
+          key.column_net: C1
+        pinky:
+          key.stagger: pinky_stagger
+          key.column_net: C2
+        ring:
+          key.stagger: ring_stagger
+          key.column_net: C3
+        middle:
+          key.stagger: middle_stagger
+          key.column_net: C4
+        index:
+          key.stagger: index_stagger 
+          key.column_net: C5
+          rows.top.tags: [key] # , above_rotated_key]
+          rows.home.tags: [key] #, rotated_key]
+        inner:
+          key.stagger: inner_stagger
+          rows.bottom.skip: true
+          key.column_net: C6
+          rows.top.tags: [key] # , above_rotated_key]
+          rows.home.tags: [key] # , rotated_key]
+        superinner:
+          key.stagger: superinner_stagger
+          rows.bottom.skip: true
+          rows.low.skip: true
+          key.column_net: C7
+      rows:
+        bottom:
+          row_net: R5
+        low:
+          row_net: R4
+        home:
+          row_net: R3
+        top:
+          row_net: R2
+        num:
+          row_net: R1
+    thumb:
+      key:
+        tags: key
+      anchor:
+        ref: matrix_inner_bottom
+        shift: [-0.1, -7]
+        rotate: -12
+      columns:
+        near:
+          key.column_net: C6
+          rows.top.skip: true
+          rows.over.skip: true
+        mid:
+          key.stagger: -3
+          key.column_net: C7
+          rows.over.skip: true
+        far:
+          key.stagger: -4
+          key.column_net: C8
+          key.spread: kpx
+      rows:
+        bottom:
+          row_net: R5
+        top:
+          row_net: R4
+        over:
+          row_net: R3
+
+################## Helper Points    
+
+    board_mid_right_corner:
+      anchor:
+        - ref: thumb_far_over
+          shift: [kpx/2+1, kpy/2]
+          affect: [x,y]
+
+    board_top_right:
+      anchor:
+        - ref: board_mid_right_corner
+          affect: x
+        - ref: matrix_superinner_num
+          shift: [kpx+15.3+1, kpy/2+1]
+          affect: y
+
+    nano:
+      anchor:
+        - ref: board_top_right
+          shift: [-14, -16.5]
+
+    view:
+      anchor:
+        - ref: nano
+          shift: [0, -4.0]
+
+    power_switch:
+      anchor:
+        - ref: board_mid_right_corner
+          shift: [0, 11]
+          affect: y
+        - ref: board_top_right
+          shift: [-1.9, 0]
+          affect: x
+
+    reset_switch:
+      anchor:
+        - ref: power_switch
+          shift: [0.175, 10]
+
+    bat_connector_hole:
+      anchor:
+        - ref: nano
+          shift: [-4.1,-17.7]
+
+    bat_connector:
+      anchor:
+        - ref: nano
+          shift: [-5.1,-29]
+          rotate: 180
+
+    bat_solder_pads:
+      anchor:
+        - ref: bat_connector_hole 
+          shift: [8 , -11]
+          affect: [x, y]
+
+    # trackpoint_mount:
+    #   anchor:
+    #     ref.aggregate.parts:
+    #       - matrix_index_top
+    #       - matrix_index_home
+    #       - matrix_inner_top
+    #       - matrix_inner_home
+    #     affect: [x, y]
+
+############### Mounting holes ##################
+
+    mounting_hole_outer_top:
+      anchor:
+        - ref: matrix_outer_top 
+          shift: [kx/2, -2.4]
+      key.tags: mounting_hole
+
+    mounting_hole_bottom_left:
+      anchor:
+        - ref: matrix_outer_low 
+          shift: [kx/2, -2.4]
+      key.tags: mounting_hole
+
+    mounting_hole_middle_num:
+      anchor:
+        - ref: matrix_middle_num
+          shift: [-kx/2, -ky/2+1]
+      key.tags: mounting_hole
+
+    mounting_hole_middle_low:
+      anchor:
+        - ref: matrix_middle_low
+          shift: [-kx/2, -ky/2]
+      key.tags: mounting_hole
+
+    mounting_hole_index_num:
+      anchor:
+        - ref: matrix_index_num
+          shift: [kx/2, -7.15]
+      key.tags: mounting_hole
+
+    mounting_hole_index_home:
+      anchor:
+        - ref: matrix_index_home
+          shift: [kx/2, -7.15]
+      key.tags: mounting_hole
+
+    mounting_hole_thumb:
+      anchor:
+        - ref: thumb_near_bottom
+          shift: [0, 11]
+          affect: [x, y]
+      key.tags: mounting_hole
+
+    mounting_hole_top_right:
+      anchor:
+        - ref: board_top_right 
+          shift: [-2.5, -2.52]
+      key.tags: mounting_hole
+
+    mounting_hole_mid_right:
+      anchor:
+        - ref: board_mid_right_corner 
+          shift: [-2.8, 3.2] 
+      key.tags: mounting_hole
+
+    mounting_hole_bottom_right:
+      anchor:
+        - ref: thumb_mid_top 
+          shift: [kx/2, -ky/2]
+      key.tags: mounting_hole
+
+outlines:
+  keys:
+    - what: rectangle
+      where: [/matrix_*/, /thumb_*/]
+      size: [kx-0.5,ky-0.5]
+      fillet: 2
+  board:
+    - what: polygon
+      operation: stack
+      fillet: 0.99
+      points:
+        - ref: matrix_outer_num
+          shift: [-kpx/2-1, kpy/2+1]
+        - ref: matrix_outer_num
+          shift: [+kpx/2-1, kpy/2+1]
+
+        - ref: matrix_pinky_num
+          shift: [-kpx/2-1, kpy/2+1]
+        - ref: matrix_pinky_num
+          shift: [+kpx/2-1, kpy/2+1]
+
+        - ref: matrix_ring_num
+          shift: [-kpx/2-1, kpy/2+1]
+        - ref: matrix_ring_num
+          shift: [+kpx/2-1, kpy/2+1]
+
+        - ref: matrix_middle_num
+          shift: [-kpx/2-1, kpy/2+1]
+        - ref: matrix_middle_num
+          shift: [+kpx/2+1, kpy/2+1]
+
+        - ref: matrix_index_num
+          shift: [-kpx/2+1, kpy/2+1]
+        - ref: matrix_index_num
+          shift: [+kpx/2+1, kpy/2+1]
+
+        - ref: matrix_inner_num
+          shift: [-kpx/2+1, kpy/2+1]
+        - ref: matrix_inner_num
+          shift: [+kpx/2+1, kpy/2+1]
+
+        - ref: matrix_superinner_num
+          shift: [-kpx/2+1, kpy/2+1]
+
+        - ref: board_top_right
+
+        - ref: board_mid_right_corner
+
+        - ref: thumb_far_bottom
+          shift: [kpx/2+1, -kpy/2-1]
+        - ref: thumb_far_bottom
+          shift: [-kpx/2-1, -kpy/2-1]
+
+        - ref: thumb_mid_bottom
+          shift: [kpx/2-1, -kpy/2-1]
+        - ref: thumb_mid_bottom
+          shift: [-kpx/2-1, -kpy/2-1]
+
+        - ref: thumb_near_bottom
+          shift: [kpx/2-1, -kpy/2-1]
+        - ref: thumb_near_bottom
+          shift: [-kpx/2-1, -kpy/2-1]
+
+        - ref: matrix_index_bottom
+          shift: [kpx/2-1, -kpy/2-1]
+        - ref: matrix_index_bottom
+          shift: [-kpx/2-1, -kpy/2-1]
+
+        - ref: matrix_middle_bottom
+          shift: [kpx/2-1, -kpy/2-1]
+        - ref: matrix_middle_bottom
+          shift: [-kpx/2+1, -kpy/2-1]
+
+        - ref: matrix_ring_bottom
+          shift: [kpx/2+1, -kpy/2-1]
+        - ref: matrix_ring_bottom
+          shift: [-kpx/2+1, -kpy/2-1]
+
+        - ref: matrix_pinky_bottom
+          shift: [kpx/2+1, -kpy/2-1]
+        - ref: matrix_pinky_bottom
+          shift: [-kpx/2+1, -kpy/2-1]
+
+        - ref: matrix_outer_bottom
+          shift: [kpx/2+1, -kpy/2-1]
+        - ref: matrix_outer_bottom
+          shift: [-kpx/2-1, -kpy/2-1]
+
+  combo:
+    - name: board
+    - operation: subtract
+      name: keys
+
+pcbs:
+  bottom_plate:
+    outlines:
+      main:
+        outline: board
+
+  pcb:
+    outlines:
+      main:
+        outline: board
+
+    footprints:
+      choc_hotswap:
+        what: choc # using infused=kim (improved version from ergogen)
+        where: [[ key, -rotated_key ]]
+        params:
+          show_keycaps: true
+          keycaps_x: 17.5
+          keycaps_y: 16.5
+          reverse: true
+          hotswap: true
+          solder: true
+          from: "{{column_net}}"
+          to: "{{colrow}}"
+
+      # choc_hotswap_rotated:
+      #   $extends: pcbs.pcb.footprints.choc_hotswap
+      #   where: rotated_key
+      #   adjust:
+      #     rotate: 180
+
+      diode:
+        what: diode
+        where: [[ key, -rotated_key]]
+        params:
+          from: "{{colrow}}"
+          to: "{{row_net}}"
+          include_tht: false
+          pads: through-hole
+        adjust:
+          shift: [0, -3.1]
+          rotate: 0
+
+      # diode_rotated:
+      #   $extends: pcbs.pcb.footprints.diode
+      #   where: rotated_key # note - due to $extends, if want an array, need to check how to do
+      #   adjust:
+      #     shift: [0, 3.1]
+      #     rotate: 180
+
+      key_text_F:
+        what: text
+        where: [[key]]
+        params:
+          side: F
+          text: "{{column_net}}{{row_net}}"
+        adjust:
+          shift: [-4.9, -6.2]
+      key_text_B:
+        what: text
+        where: [[key]]
+        params:
+          side: B
+          text: "{{column_net}}{{row_net}}"
+        adjust:
+          shift: [4.9, -6.2]
+
+      #### Hotswap routes ####
+          
+      switch_hotswap_routes:
+        what: router
+        where: [ [key, -rotated_key] ]
+        params:
+          locked: true
+          routes:
+            - "B(-3.275,-5.95)(-1.35,-4.025)(1.35,-4.025)(3.275,-5.95)V"  # net: {{column_net}}
+            - "F(-8.275,-3.75)(-6.35,-1.825)(-1.25,-1.825)(0,-3.075)V(1.25,-1.825)(6.35,-1.825)(8.275,-3.75)"  # net: {{colrow}}
+
+      # switch_hotswap_routes_rotated:
+      #   $extends: pcbs.pcb.footprints.switch_hotswap_routes
+      #   where: rotated_key # note - due to $extends, if want an array, need to check how to do
+      #   adjust:
+      #     rotate: 180
+
+      diode_hotswap_in_switch_routes:
+        what: router
+        where: [ [key, -rotated_key] ]
+        params:
+          locked: true
+          routes:
+            - "B(1.25,-1.825)(2.1395,-0.9355)(2.1395,2.6105)(1.65,3.1)"  # net: {{colrow}}
+
+      # diode_hotswap_in_switch_routes_rotated:
+      #   where: rotated_key
+      #   $extends: pcbs.pcb.footprints.diode_hotswap_in_switch_routes
+      #   adjust:
+      #     rotate: 180
+
+      key_hotswap_vertical_col_route:
+        what: router
+        where: [ [key, -rotated_key, -above_rotated_key, -/.*bottom/, -/matrix_inner_low/, -/matrix_superinner_home/] ]
+        params:
+          locked: true
+          routes:
+            - "B(-3.275,11.05)(-3.075,10.85)(-3.075,-5.75)(-3.275,-5.95)"  # net: {{column_net}}
+            # - "B(-3.275,11.05)(-3.125,10.9)(-3.125,-5.8)(-3.275,-5.95)"  # net: {{column_net}}         routes:
+
+
+      #### Soldered routes ####
+
+      switch_solder_routes:
+        what: router
+        where: [ [key, -rotated_key] ]
+        params:
+          locked: true
+          routes:
+            - "F(5,3.8)(4.241,4.559)(-4.241,4.559)(-5,3.8)"  # net: {{column_net}}
+
+      switch_solder_routes_rotated:
+          # ref: bat_solder_pads
+          # rotate: 180
+        $extends: pcbs.pcb.footprints.switch_solder_routes
+        where: rotated_key
+        adjust:
+          rotate: 180
+
+      diode_solder_in_switch_routes:
+        what: router
+        where: [ [key, -rotated_key] ]
+        params:
+          locked: true
+          routes:
+            - "B(0,5.9)(1.65,4.25)(1.65,3.1)"  # net: {{colrow}}
+
+      diode_solder_in_switch_routes_rotated:
+        $extends: pcbs.pcb.footprints.diode_solder_in_switch_routes
+        where: rotated_key
+        adjust:
+          rotate: 180
+
+      key_solder_vertical_col_routes:
+        what: router
+        where: [ [key, -rotated_key, -above_rotated_key, -/.*bottom/, -/matrix_inner_low/, -/matrix_superinner_home/] ]
+        params:
+          locked: true
+          routes:
+            - "B(-5,20.8)(-3.075,20.8)(-3.075,3.8)(-5,3.8)"  # net: C1
+
+      outer_to_index_row_route:
+        what: router
+        where: [[/matrix_outer.*/]]
+        params:
+          locked: true
+          routes:
+            # Outer -> Pinky
+            - "F(16.35,1.1)(15.03,-0.22)(11.66,-0.22)(10.6041,-1.2759)(4.9715,-1.2759)(3.21,0.4856)(3.21,3.34)(2.525,4.025)(-0.725,4.025)(-1.65,3.1)"  # net: {{row_net}}
+      #       # Pinky -> Ring
+            - "F(34.35,-6.9)(33.17,-8.08)(29.63,-8.08)(25.08,-3.53)(23.2256,-3.53)(21.19,-1.4944)(21.19,1.22)(20.385,2.025)(17.275,2.025)(16.35,1.1)"  # net: {{row_net}}
+      #       # Ring -> Middle
+            - "F(34.35,-6.9)(35.275,-5.975)(38.615,-5.975)(39.2,-6.56)(39.2,-9.5044)(41.05,-11.3544)(41.05,-11.36)(42.99,-11.36)(44.78,-13.15)(51.1,-13.15)(52.35,-11.9)"  # net: {{row_net}}
+      #       # Middle -> Index
+            - "F(52.35,-11.9)(53.359,-10.891)(56.481,-10.891)(58.7,-13.11)(61.115,-13.11)(62.9491,-11.2759)(67.8241,-11.2759)(68.24,-10.86)(68.24,-9.01)(70.35,-6.9)"  # net: {{row_net}}
+
+      index_to_inner_route:
+        what: router
+        where: [ [/matrix_index.*/, -/.*bottom/]]
+        params:
+          locked: true
+          routes:
+            - "F(-1.65,3.1)(-0.725,4.025)(2.545,4.025)(4.9075,1.6625)(13.6368,1.6625)(16.35,4.37571)(16.35,6.1)"  # net: {{row_net}}
+
+      inner_to_supper_inner_route:
+        what: router
+        where: [ [/matrix_inner.*/, -/matrix_inner_low/]]
+        params:
+          locked: true
+          routes:
+            - "F(16.35,6.1)(14.91,4.66)(14.91,2.93)(13.6425,1.6625)(4.7875,1.6625)(2.341,4.109)(-0.641,4.109)(-1.65,3.1)"  # net: {{row_net}}
+
+      thumb_rows_routes:
+        what: router
+        where: [ /thumb_near_bottom/]
+        params:
+          locked: true
+          routes:
+              - "F(-1.65,3.1)(-0.641,4.109)(2.47229,4.109)(4.95629,1.625)(13.26229,1.625)(16.35,4.71271)(16.35,6.1)(17.359,7.109)(20.48229,7.109)(22.70659,4.8847)(28.61229,4.8847)(29.35259,5.625)(31.08229,5.625)(34.35,8.89272)(34.35,10.1)"  # net: R5
+              - "F(34.35,-6.9)(34.35,-8.24728)(31.22229,-11.375)(29.28229,-11.375)(28.53229,-12.125)(22.71629,-12.125)(20.48229,-9.891)(17.359,-9.891)(16.35,-10.9)"  # net: R4
+
+      thumb_missing_col_routes:
+        what: router
+        where: [ /thumb_near_bottom/]
+        params:
+          locked: true
+          routes:
+            - "B(-5,3.8)(-3.075,3.8)(-3.075,-5.75)(-3.275,-5.95)"  # net: C6
+
+      matrix_thumb_row_connections_routes:
+        what: router
+        where: [ /matrix_inner_low/]
+        params:
+          locked: true
+          routes:
+            - "F(18.15895,16.73755)(16.1714,14.75)(12.05,14.75)V(4.725,7.425)(-0.85,7.425)(-1.65,6.625)(-1.65,3.1)"  # net: R4
+            - "F(38.46846,7.76404)(36.45442,5.75)(32.825,5.75)V(28.125,5.75)(16.35,-6.025)(16.35,-10.9)"  # net: R3
+            - "F(-19.65,17.1)(-18.725,18.025)(-15.15,18.025)(-13.584,16.459)(-12.441,16.459)(-9.28138,19.61862)(-9.28138,20.89362)(-3.4858,26.6892)(-2.35847,26.6892)"  # net: R5
+    
+      matrix_thumb_col_connections_routes:
+        what: router
+        where: [ /matrix_inner_low/]
+        params:
+          locked: true
+          routes:
+            - "B(-2.06636,17.49911)(-3.075,16.49047)(-3.075,-8.5)"  # net: C6
+            - "B(16.61955,17.12598)(13.76171,14.26814)(13.76171,9.16301)(14.925,7.99972)(14.925,-22.5)"  # net: C7
+
+      rows_nano_connections_routes:
+        what: router
+        where: nano
+        params:
+          locked: true
+          routes:
+            - "F(-21.92566,30.1)(-20.91666,31.109)(-17.87566,31.109)(-15.61666,28.85)(-14.82126,28.85)(-13.07566,27.1044)(-13.07566,11.63639)(-12.12566,10.68639)(-12.12566,9.325)(-11.59566,8.795)(-4.437,8.795)(-3.262,7.62)"  # net: R3
+            - "F(-21.92566,13.1)(-20.91666,14.109)(-17.67566,14.109)(-15.49166,11.925)(-14.00066,11.925)(-12.70066,10.62499)(-12.70066,7.4)(-11.55566,6.255)(-4.437,6.255)(-3.262,5.08)"  # net: R2
+            - "F(-50.71666,57.459)(-45.17304,51.91538)(-45.16604,51.91538)(-42.22566,48.975)(-30.90066,48.975)(-29.95066,48.025)(-29.95066,41.3114)(-23.81376,35.1745)(-14.22566,35.1745)(-12.17566,33.12449)(-12.17566,14.55)(-11.69066,14.065)(-4.627,14.065)(-3.262,12.7)"  # net: R5
+            - "F(-3.262,10.16)(-4.577,11.475)(-11.52566,11.475)(-12.62566,12.575)(-12.62566,30.35)(-16.72566,34.45)(-23.72566,34.45)(-32.11316,42.8375)(-33.65415,42.8375)(-35.92566,45.109)(-39.06666,45.109)(-39.92566,44.25)(-39.92566,44.1)"  # net: R4
+            - "F(-21.92566,-3.9)(-21.00066,-2.975)(-17.39712,-2.975)(-15.83112,-4.541)(-13.89166,-4.541)(-7.98566,1.365)(-4.437,1.365)(-3.262,2.54)"  # net: R1
+
+      cols_nano_connections_routes:
+        what: router
+        where: nano
+        params:
+          locked: true
+          routes:
+            - "B(-4.775,-2.54)(-4.775,-2.64962)(-5.84038,-3.715)(-8.1067,-3.715)(-11.0217,-0.8)(-12.77566,-0.8)V(-12.80096,-0.8)(-13.90096,0.3)(-30.14545,0.3)(-33.12045,-2.675)(-48.75286,-2.675)(-51.82786,-5.75)(-59.72212,-5.75)(-64.72212,-10.75)(-77.67566,-10.75)(-78.27345,-10.15221)(-78.27345,-10.15)(-81.02345,-7.4)(-84.42345,-7.4)(-86.07345,-5.75)(-101.70066,-5.75)(-102.67566,-4.775)(-102.67566,1.3886)(-103.53705,2.25)(-117.27566,2.25)(-119.30066,4.275)(-131.35066,4.275)V"  # net: C1
+            - "B(-4.775,5.08)(-4.775,4.97038)(-5.84038,3.905)(-8.1067,3.905)(-9.8117,2.2)(-12.77566,2.2)V(-12.80096,2.2)(-13.35096,1.65)(-30.70464,1.65)(-33.67964,-1.325)(-49.32566,-1.325)(-50.45834,-2.45769)(-50.45834,-2.46731)(-52.39104,-4.4)(-60.2813,-4.4)(-65.2813,-9.4)(-76.70066,-9.4)(-77.35066,-8.75)VF(-77.22566,-8.875)"  # net: C4
+            - "B(-4.775,0)(-4.775,-0.44934)(-5.50066,-1.175)(-8.1067,-1.175)(-9.4817,0.2)(-12.77566,0.2)V(-12.80096,0.2)(-13.35096,0.75)(-30.33185,0.75)(-33.30685,-2.225)(-48.93926,-2.225)(-52.01426,-5.3)(-59.90851,-5.3)(-64.90851,-10.3)(-77.48705,-10.3)(-80.83705,-6.95)(-84.23705,-6.95)(-85.88705,-5.3)(-101.47566,-5.3)(-102.22566,-4.55)(-102.22566,1.575)(-103.62566,2.975)(-113.35066,2.975)V"  # net: C2
+            - "(-95.35066,-4.575)VF(-95.07566,-4.85)(-85.70066,-4.85)(-84.05066,-6.5)(-80.65066,-6.5)(-77.30066,-9.85)(-65.09491,-9.85)(-60.09491,-4.85)(-52.20066,-4.85)(-49.12566,-1.775)(-33.49324,-1.775)(-30.51824,1.2)(-12.77566,1.2)V(-6.00538,1.2)(-4.775,2.43038)(-4.775,2.54)"  # net: C3
+            - "B(-4.775,7.62)(-4.775,7.18)(-5.51,6.445)(-8.1067,6.445)(-11.3517,3.2)(-12.77566,3.2)V(-12.80096,3.2)(-13.90096,2.1)(-30.89104,2.1)(-33.86604,-0.875)(-49.52566,-0.875)(-52.60066,-3.95)(-59.07566,-3.95)(-59.35066,-3.675)V"  # net: C5
+            - "B(-4.775,10.16)(-4.775,10.26962)(-5.84038,11.335)(-11.31066,11.335)(-12.57566,12.6)(-12.57566,15.925)(-14.32566,17.675)V(-25.90066,17.675)(-28.82566,14.75)(-41.35066,14.75)V"  # net: C6
+            - "B(-23.35066,48.99972)(-23.35066,19.05)(-14.67536,19.05)(-12.07566,16.4503)(-12.07566,15.025)(-11.11566,14.065)(-5.86566,14.065)(-4.775,12.97434)(-4.775,12.7)"  # net: C7
+            - "F(4.775,15.24)(4.775,15.13038)(6.03038,13.875)(8.525,13.875)(10.6,15.95)(10.6,22.59934)(7.67434,25.52499)(7.67434,37.7)V(7.67434,40.15321)(6.89178,40.93577)"  # net: C8
+
+      mounting_holes:
+        what: mounting_hole
+        params:
+          outline: mounting_hole_outline
+          drill: mounting_hole_drill
+        where: [mounting_hole]
+
+      # Controller/Battery/Reset area 
+
+      nano:
+        what: nice_nano_pretty
+        where:
+          ref: nano
+          # ref: matrix_superinner_num
+          # shift: [nano_anchor_dx,nano_anchor_dy]
+          rotate: 0
+        params:
+          traces: true
+          show_via_labels: true
+          show_silk_labels: true
+          show_instructions: true
+          locked_tracks: true
+
+          # Pin Assignments (Controller on top facing down)
+          # Right Side
+          P0: 'TPD'    # Trackpoint Data
+          P1: 'TPC'    # Trackpoint Clock
+          # GND
+          # GND
+          P2: 'DPD'   # Display Data
+          P3: 'DPC'   # Display Clock
+          P4: 'R1'    # Row Num
+          P5: 'R2'    # Row Top
+          P6: 'R3'    # Row Home
+          P7: 'R4'    # Row Low
+          P8: 'R5'    # Row Bottom
+          P9: 'DPE'   # Display CS (nice!view only)
+
+          # Left Side
+          # RAW       # Battery Pos
+          # GND       # Ground / Battery Neg
+          # RST       # Reset pin
+          # VCC       # External Power
+          P21: 'C1'   # Column Outer
+          P20: 'C2'   # Column Pinky
+          P19: 'C3'   # Column Ring
+          P18: 'C4'   # Column Middle
+          P15: 'C5'   # Column Index
+          P14: 'C6'   # Column Inner / Thumb Near
+          P16: 'C7'   # Colume Superinner / Thumb Mid
+          P10: 'C8'   # Column Thumb Far
+
+      nano_GND_routes:
+        what: router
+        where: nano # change filter as needed
+        params:
+          locked: true
+          routes:
+            - "B(-3.262,-9.435)(-3.262,-7.62)F(-3.262,-5.08)"  # net: GND
+    
+      view:
+        what: nice_view
+        params:
+          reverse: true
+          MOSI: DPD
+          SCK: DPC
+          CS: DPE
+          show_labels: true
+          jumpers_at_bottom: true
+        where:
+          ref: view
+
+      view_routes:
+        what: router
+        where: view # change filter as needed
+        params:
+          locked: true
+          routes:
+            - "B(4.775,11.24)(4.77434,11.24065)(4.77434,14.45)(3.94934,15.275)(-3.10066,15.275)(-3.82566,16)(-3.82566,19.44565)(-4.43,20.05)(-5.08,20.05)(-3.081,22.04901)(-0.00066,22.04901)V(3.08098,22.04901)(5.08,20.05)"  # net: DPE
+            - "B(4.775,-4)(4.775,-4.10962)(5.84038,-5.175)(11.47434,-5.175)(12.52434,-4.12501)(12.52434,7.34916)(11.36248,8.51101)(11.36248,9.71581)(10.09934,10.97896)(10.09934,13.825)(8.77434,15.15)(4.74934,15.15)(3.79934,16.1)(3.79934,19.64066)(3.39,20.05)(2.54,20.05)(-0.00066,20.05)V(-2.54,20.05)"  # net: DPC
+            - "B(4.775,-6.54)(4.775,-6.92566)(5.57434,-7.725)(11.49934,-7.725)(12.98682,-6.23752)(12.98682,7.52307)(11.81248,8.6974)(11.81248,9.90221)(10.54934,11.16535)(10.54934,14.025)(8.97434,15.6)(7.22434,15.6)(6.89934,15.925)(6.89934,19.08066)(5.93,20.05)(5.08,20.05)(4.0805,21.0495)(-0.00066,21.0495)V(-4.0805,21.0495)(-5.08,20.05)"  # net: DPD
+            - "F(-3.262,-9.08)(-1.275,-7.093)(-1.275,17.70016)(-0.00016,18.975)V(-1.07516,20.05)(-2.54,20.05)"  # net: GND
+            - "F(-0.00016,18.975)(1.07484,20.05)(2.54,20.05)"  # net: GND
+            - "F(-0,16.7)(-0,-4.305)(4.775,-9.08)"  # net: VCC
+            - "F(-5.08,16.7)(-5.08,19.15)B(-5.08,16.7)"  # net: DISP1_1
+            - "F(-2.54,16.7)(-2.54,19.15)B(-2.54,16.7)"  # net: DISP1_2
+            - "F(2.54,16.7)(2.54,19.15)B(2.54,16.7)"  # net: DISP1_4
+            - "F(5.08,16.7)(5.08,19.15)B(5.08,16.7)"  # net: DISP1_5
+    
+      reset:
+        what: switch_reset_panasonic
+        params:
+          reverse: true
+          pads: through-hole
+          from: GND
+          to: RST
+        where:
+          ref: reset_switch
+        adjust:
+          rotate: -90
+
+      power:
+        what: switch_power
+        params:
+          reverse: true
+          from: BAT_P
+          to: RAW
+        where:
+          ref: power_switch
+
+      power_reset_routes:
+        what: router
+        where: power_switch # change filter as needed
+        params:
+          locked: true
+          routes:
+            - "F(-15.362,-33.9197)(-14.167,-35.1147)(-0.60066,-35.1147)(1.025,-33.48904)(1.025,-14.59035)(0.07434,-13.6397)(-0.675,-13.6397)(-0.675,-5.49035)(-0.05066,-4.86601)(-0.05066,-3.1397)(1.02434,-2.0647)(1.02434,2.2603)(0.02434,3.2603)(0.02434,4.5353)(1.475,5.98597)(1.475,10.23464)(0.37434,11.3353)(-16.37566,7.7853)(-18.32,5.84097)(-18.32,5.1603)"  # net: GND
+            - "F(-16.08,5.1603)(-16.08,5.84347)(-14.1259,7.79756)(-3.60016,10.02304)(-3.60016,0.23479)(-3.38566,0.0203)V(-2.65596,0.75)(-1.735,0.75)"  # net: BAT_P
+            - "F(-3.38566,0.0203)(-2.61536,-0.75)(-1.735,-0.75)"  # net: BAT_P
+            - "F(1.025,-7.375)(1.025,-12.625)(1.025,-13.81535)(1.475,-14.26535)(1.475,-35.56404)(-0.59566,-37.6347)(-7.663,-37.6347)(-8.838,-36.4597)"  # net: RST
+            - "B(-9.088,-41.2897)(-8.838,-41.5397)(-8.838,-40.97401)(-8.22868,-40.3647)(-0.60066,-40.3647)(1.37434,-38.38971)(1.37434,-17.1147)(0.2,-15.94036)(0.2,-6.485)(-3.37566,-2.90934)(-3.37566,-2.2647)V(-3.36096,-2.25)(-1.735,-2.25)"  # net: RAW
+            - "B(-3.37566,-2.2647)(-1.7497,-2.2647)(-1.735,-2.25)"  # net: RAW
+    
+      bat_connector_hole:
+        what: mounting_hole
+        params:
+          outline: 0.25
+          drill: 4.5
+          drill_y: 2
+          courtyard: false # to prevent unneccesary couryard errors, caution when placing
+        where: 
+          ref: bat_connector_hole
+
+      bat_connector:
+        what: conn_molex_pico_ezmate_1x02
+        params:
+          reverse: true
+          pad_1: BAT_P
+          pad_2: GND
+        where:
+          ref: bat_connector
+
+      bat_connector_pads:
+        what: pads
+        params:
+          reverse: true
+          width: 1.25
+          height: 2.5
+          space: 1.25
+          pads: 2
+          net_1: BAT_P
+          net_2: GND
+        where:
+          ref: bat_connector
+
+      bat_connector_icon:
+        what: icon_bat
+        params:
+          reverse: true
+          spacing: 6 
+        where:
+          ref: bat_connector
+          shift: [0, -2.3 - 0.5 - 0.5 + 1.5]
+
+      bat_solder_pads:
+        what: pads
+        params:
+          pads_type: through-hole
+          drill_size: 1
+          reverse: false
+          side: F
+          width: 1.7
+          height: 2
+          space: 0.54
+          pads: 2
+          net_1: "BAT_P"
+          net_2: "GND"
+        where:
+          ref: bat_connector
+          shift: [0, +5] # y is + because connector is upside down
+
+      bat_solder_icon_F:
+        what: icon_bat
+        params:
+          side: F
+          reverse: false
+          spacing: 6 
+        where:
+          ref: bat_connector
+          shift: [0, +5] # y is + because connector is upside down
+
+      bat_solder_icon_B:
+        $extends: pcbs.pcb.footprints.bat_solder_icon_F
+        params:
+          side: B
+          reverse: false
+          spacing: 6 
+        where:
+          ref: bat_connector
+          shift: [0, +5] # y is + because connector is upside down
+          rotate: 180
+
+      bat_internal_routes:
+        what: router
+        where: bat_connector # change filter as needed
+        params:
+          locked: true
+          routes:
+            - "B(0.35,0.9)(1.25,-0)(1.25,-1.225)(0.6,-1.875)(1.27565,-1.875)(2.77565,-3.375)(2.77565,-6.45)(2.30065,-6.925)(-0.19935,-6.925)(-1.12,-6.00434)(-1.12,-5)F(-1.12,-2.395)(-0.6,-1.875)"  # net: BAT_P
+            - "(0,0.9)VB(0.35,0.9)"  # net: BAT_P
+            - "F(-1.25,0)(-0.8745,0)(0,0.9)"  # net: BAT_P
+            - "F(1.12,-2.395)(1.12,-5)B(1.12,-3.595)(-0.6,-1.875)(-1.25,-1.225)(-1.25,0)(-0.625,-0.625)(0,-0.625)V(0.6505,-0)(1.25,-0)"  # net: GND
+            - "F(0.6,-1.875)(1.12,-2.395)"  # net: GND
+
+      #
+      # trackpoint_mount:
+      #   what: trackpoint_mount
+      #   where:
+      #     ref: trackpoint_mount
+      #   params:
+      #     reverse: true
+      #     show_outline_t430: false
+      #     show_outline_x240: false
+      #     show_outline_t460s: true
+      #     show_board: true
