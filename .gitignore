@@ -49,3 +49,4 @@ out/
 ergogen_out/
 # pcbs/
 ergogen_src/footprints/*.js
+pcbs/gerber/
